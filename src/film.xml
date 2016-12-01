@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Film"> 
+
+
+	<!-- INSERT -->
+   <insert id="insert" parameterClass="it.alfasoft.pierangelo.model.Film">
+      insert into FILM(titolo,annoPubblicazione,nomeRegista,genere,codiceFilm)
+      values (#titolo#, #annoPubblicazione#, #nomeRegista#,#genere#,#codiceFilm#)
+
+     	 <selectKey resultClass="int" type="pre" keyProperty="id_film" > 
+     		SELECT FILM_SEQ.NEXTVAL AS VALUE FROM DUAL
+  		</selectKey>
+   </insert> 
+   
+   
+   <!-- UPDATE -->
+   <update id="update" parameterClass="it.alfasoft.pierangelo.model.Film">
+      UPDATE FILM
+      SET    titolo = #titolo#
+      WHERE  id_film = #id_film#
+   </update>
+
+
+
+	<!-- DELETE -->
+	<delete id="delete" parameterClass="int">
+      DELETE FROM FILM
+      WHERE  id_film = #id_film#
+   </delete>
+   
+   
+   
+   <!-- READ ALL -->
+   <select id="getAll" resultClass="it.alfasoft.pierangelo.model.Film">
+      SELECT * FROM FILM
+   </select>
+   
+   
+   
+   <!-- READ FROM TITLE -->
+   <select id="getConTitolo" resultClass="it.alfasoft.pierangelo.model.Film">
+      SELECT * FROM FILM WHERE TITOLO = #titolo# 
+   </select>
+	
+   
+	
+</sqlMap>

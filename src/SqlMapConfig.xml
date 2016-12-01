@@ -10,7 +10,7 @@
          <property name="JDBC.Driver" value="oracle.jdbc.driver.OracleDriver"/>
          <property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
          <property name="JDBC.Username" value="PIER_DATABASE"/>
-         <property name="JDBC.Password" value="kaparo242"/>
+         <property name="JDBC.Password" value="pier242"/>
 			
       </dataSource>
    </transactionManager>
